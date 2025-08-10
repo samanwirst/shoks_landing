@@ -7,7 +7,7 @@ const testimonials = [
   {
     name: "Sarvinoz",
     role: "Booster Cohort - Advanced Track",
-    content: "Shoks helped me increase my score by 200 points!",
+    content: "As it is my first time taking an online course, I can bravely say that it was more than I expected! Even better than offline. The course itself is amazing - lots of hw, good community and funny and at same time very strict teacher. Punishments for not doin the hw is also creative - I sent video of me tellin a poem. What I liked most is that Said explains everything in detail, if even only one student doesnt get it, he'll explain again and again until we understand the whole thing, he doesn't just skip. I dont feel shy asking questions in his classes and that helped me to progress a lott!!!!!!!! Community is also supportive - even if i send questions at 3 a.m, at least 3 people help me to understand it. Thank uuuu!!!!!!!",
     rating: 5,
     image: "/testimonials/sarvinoz.jpg"
   },

@@ -2,6 +2,7 @@
 
 import { motion, Variants } from 'framer-motion';
 import { GraduationCap, Mail, Trophy, Heart, ArrowRight, Sparkles } from 'lucide-react';
+import Image from 'next/image';
 
 const transformationScenarios = [
   {
@@ -166,10 +167,13 @@ export default function VisualizationTransformation({ isDarkTheme = true }: Visu
                   {/* Dynamic images based on scenario */}
                   {index === 0 && (
                     <div className="relative w-full h-full">
-                      <img 
+                      <Image
                         src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
                         alt="Elegant letter on dark surface"
                         className="w-full h-full object-cover"
+                        width={800}
+                        height={600}
+                        unoptimized
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                       <div className="absolute bottom-6 left-6 right-6">
@@ -180,10 +184,13 @@ export default function VisualizationTransformation({ isDarkTheme = true }: Visu
                   )}
                   {index === 1 && (
                     <div className="relative w-full h-full">
-                      <img 
+                      <Image
                         src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
                         alt="Focused student in dark study environment"
                         className="w-full h-full object-cover"
+                        width={800}
+                        height={600}
+                        unoptimized
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                       <div className="absolute bottom-6 left-6 right-6">
@@ -194,10 +201,13 @@ export default function VisualizationTransformation({ isDarkTheme = true }: Visu
                   )}
                   {index === 2 && (
                     <div className="relative w-full h-full">
-                      <img 
+                      <Image
                         src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
                         alt="Modern university architecture at dusk"
                         className="w-full h-full object-cover"
+                        width={800}
+                        height={600}
+                        unoptimized
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                       <div className="absolute bottom-6 left-6 right-6">
@@ -308,7 +318,7 @@ export default function VisualizationTransformation({ isDarkTheme = true }: Visu
             isDarkTheme ? 'text-gray-300' : 'text-gray-600'
           }`}>
             Every day you wait is another day your dreams remain just dreams. 
-            The student who achieves their goals isn't the smartest - they're the one who takes action.
+            The student who achieves their goals isn&apos;t the smartest - they&apos;re the one who takes action.
           </p>
           
           <motion.button
@@ -320,7 +330,7 @@ export default function VisualizationTransformation({ isDarkTheme = true }: Visu
           </motion.button>
           
           <p className={`text-sm mt-6 ${isDarkTheme ? 'text-gray-500' : 'text-gray-500'}`}>
-            Join the hundreds of students who've already transformed their futures
+            Join the hundreds of students who&apos;ve already transformed their futures
           </p>
         </motion.div>
       </div>

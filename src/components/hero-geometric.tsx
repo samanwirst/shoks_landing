@@ -1,6 +1,5 @@
 'use client';
 
-import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -58,17 +57,6 @@ export function HeroGeometric({
             y: 0,
             transition: {
                 duration: 0.5
-            }
-        }
-    };
-
-    const subtitleVariants = {
-        hidden: { opacity: 0, y: 15 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: {
-                duration: 0.4
             }
         }
     };

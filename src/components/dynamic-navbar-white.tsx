@@ -5,11 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 
-interface DynamicNavbarWhiteProps {
-    isWhiteTheme?: boolean;
-}
-
-export function DynamicNavbarWhite({ isWhiteTheme = true }: DynamicNavbarWhiteProps) {
+export function DynamicNavbarWhite() {
     const [isOpen, setIsOpen] = useState(false);
 
     const scrollToSection = (sectionId: string) => {
@@ -55,7 +51,7 @@ export function DynamicNavbarWhite({ isWhiteTheme = true }: DynamicNavbarWhitePr
                 {/* Center - Desktop Menu */}
                 <div className="hidden md:flex items-center gap-8 flex-1 justify-center">
                     <button 
-                        onClick={() => scrollToSection('solution')}
+                        onClick={() => scrollToSection('services')}
                         className="text-sm text-slate-300 hover:text-white transition-colors cursor-pointer"
                     >
                         Services
@@ -103,7 +99,7 @@ export function DynamicNavbarWhite({ isWhiteTheme = true }: DynamicNavbarWhitePr
                 <div className="md:hidden absolute top-full left-0 w-full bg-black/95 backdrop-blur-lg shadow-lg border-t border-gray-800">
                     <div className="container mx-auto px-4 md:px-6 py-6 flex flex-col items-center gap-6">
                         <button 
-                            onClick={() => scrollToSection('solution')}
+                            onClick={() => scrollToSection('services')}
                             className="text-lg text-slate-300 hover:text-white transition-colors"
                         >
                             Services

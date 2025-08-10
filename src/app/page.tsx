@@ -28,7 +28,7 @@ export default function Home() {
       </div>
       
       {/* Solution Presentation Section */}
-      <div className="bg-slate-100 relative" data-section="solution">
+      <div className="bg-slate-100 relative" id="services" data-section="solution">
         <BackgroundShapes variant="light" density="medium" />
         <div className="relative z-10">
           <SolutionPresentation isDarkTheme={true} />

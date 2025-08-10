@@ -119,7 +119,7 @@ export function DynamicNavbar() {
                         className="md:hidden absolute top-full left-0 w-full bg-black/80 backdrop-blur-lg shadow-lg"
                     >
                         <div className="container mx-auto px-4 md:px-6 py-4 flex flex-col items-center gap-4">
-                            <Link href="#services" className="text-lg text-gray-300 hover:text-white transition-colors" onClick={() => setIsOpen(false)}>Services</Link>
+                            <Link href="#services" className="block py-2 text-gray-300 hover:text-white transition-colors" onClick={() => setIsOpen(false)}>Services</Link>
                             <Link href="#testimonials" className="text-lg text-gray-300 hover:text-white transition-colors" onClick={() => setIsOpen(false)}>Testimonials</Link>
                             <Link href="#why-us" className="text-lg text-gray-300 hover:text-white transition-colors" onClick={() => setIsOpen(false)}>Why Us</Link>
                             <Link href="#your-future" className="text-lg text-gray-300 hover:text-white transition-colors" onClick={() => setIsOpen(false)}>Your Future</Link>

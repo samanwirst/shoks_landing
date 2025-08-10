@@ -68,7 +68,7 @@ export default function PainAmplification({ isDarkTheme = true }: PainAmplificat
             variants={itemVariants}
             className="text-4xl md:text-5xl font-bold mb-6"
           >
-            You're Not Alone in This
+            You&apos;re Not Alone in This
           </motion.h2>
           <motion.p 
             variants={itemVariants}
@@ -122,8 +122,8 @@ export default function PainAmplification({ isDarkTheme = true }: PainAmplificat
           <p className={`text-lg md:text-xl italic max-w-3xl mx-auto ${
             isDarkTheme ? 'text-gray-300' : 'text-gray-600'
           }`}>
-            "Every high-achieving student faces these exact same fears. The difference? 
-            Some find the right guidance to overcome them."
+            &quot;Every high-achieving student faces these exact same fears. The difference? 
+            Some find the right guidance to overcome them.&quot;
           </p>
         </motion.div>
       </div>

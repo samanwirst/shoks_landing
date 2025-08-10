@@ -96,7 +96,7 @@ export default function UniqueSellingPoints({ isDarkTheme = true }: UniqueSellin
               isDarkTheme ? 'text-gray-300' : 'text-gray-600'
             }`}
           >
-            Access benefits and resources that simply aren't available anywhere else
+            Access benefits and resources that simply aren&apos;t available anywhere else
           </motion.p>
         </motion.div>
 

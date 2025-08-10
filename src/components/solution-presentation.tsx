@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import { Award, BarChart3, BookOpen, Users, CheckCircle, Star } from 'lucide-react';
+import { Award, BarChart3, BookOpen, Users, CheckCircle, Star, ArrowRight } from 'lucide-react';
 
 const features = [
   {
@@ -22,9 +22,8 @@ const features = [
 ];
 
 const credibilityStats = [
-  { number: "500+", label: "Students Helped" },
-  { number: "200+", label: "Average Score Increase" },
-  { number: "95%", label: "College Acceptance Rate" },
+  { number: "100+", label: "Students Helped" },
+  { number: "150", label: "Average Score Increase" },
   { number: "10+", label: "Years Experience" }
 ];
 
@@ -57,7 +56,7 @@ export default function SolutionPresentation({ isDarkTheme = true }: SolutionPre
   };
 
   return (
-    <section className={`py-20 px-6 ${isDarkTheme ? 'bg-gray-950 text-white' : 'bg-gray-50 text-gray-900'}`}>
+    <section id="services" className={`py-20 px-6 ${isDarkTheme ? 'bg-gray-950 text-white' : 'bg-gray-50 text-gray-900'}`}>
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div
@@ -160,7 +159,7 @@ export default function SolutionPresentation({ isDarkTheme = true }: SolutionPre
               <div className="flex items-center">
                 <CheckCircle className="w-5 h-5 text-green-500 mr-2" />
                 <span className={`text-sm ${isDarkTheme ? 'text-gray-400' : 'text-gray-600'}`}>
-                  Trusted by students at Harvard, MIT, Stanford, and more
+                  Trusted by students at Colby, Stanford, Brown, and more
                 </span>
               </div>
             </motion.div>
@@ -178,6 +177,22 @@ export default function SolutionPresentation({ isDarkTheme = true }: SolutionPre
               ))}
             </motion.div>
           </div>
+        </motion.div>
+
+        {/* Enrollment Button - Centered outside the box */}
+        <motion.div 
+          variants={itemVariants}
+          className="mt-12 flex justify-center"
+        >
+          <a 
+            href="https://forms.gle/C2k3btULzK2sdcsk7" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-[#FF5F23] hover:bg-[#FF5F23]/90 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+          >
+            Enroll in the Course
+            <ArrowRight className="w-5 h-5" />
+          </a>
         </motion.div>
 
 
