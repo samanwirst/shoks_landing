@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, Variants } from 'framer-motion';
-import { TrendingUp, Award, Target } from 'lucide-react';
+import { TrendingUp } from 'lucide-react';
 
 const results = [
   {
@@ -34,12 +34,36 @@ const results = [
   }
 ];
 
-const stats = [
-  { number: "98%", label: "Student Satisfaction Rate", icon: Award },
-  { number: "150", label: "Average Score Increase", icon: TrendingUp },
-  { number: "100+", label: "Reach Target Score", icon: Target },
-  { number: "100s", label: "Success Stories", icon: Award }
-];
+
+
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      ease: "easeOut",
+      duration: 0.6
+    }
+  }
+};
+
+const itemVariants: Variants = {
+  hidden: { 
+    opacity: 0, 
+    y: 30,
+    scale: 0.95
+  },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    scale: 1,
+    transition: {
+      ease: "easeOut",
+      duration: 0.5
+    }
+  }
+};
 
 interface ResultsProps {
   isDarkTheme?: boolean;

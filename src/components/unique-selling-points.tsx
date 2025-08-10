@@ -158,7 +158,7 @@ export default function UniqueSellingPoints({ isDarkTheme = true }: UniqueSellin
               Limited Availability
             </h3>
             <p className={`text-lg ${isDarkTheme ? 'text-gray-300' : 'text-gray-600'}`}>
-              We maintain small cohort sizes to ensure every student receives personalized attention
+              We don&apos;t just teach test-taking tricks—we build genuine understanding that receives personalized attention
             </p>
           </motion.div>
 

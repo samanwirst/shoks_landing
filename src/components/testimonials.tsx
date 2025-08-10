@@ -1,14 +1,13 @@
 "use client";
 
 import { motion, Variants } from 'framer-motion';
-import { Star, Quote, ArrowRight } from 'lucide-react';
-import Image from 'next/image';
+import { Star } from 'lucide-react';
 
 const testimonials = [
   {
     name: "Sarvinoz",
     role: "Booster Cohort - Advanced Track",
-    content: "As it is my first time taking an online course, I can bravely say that it was more than I expected! Even better than offline. The course itself is amazing - lots of hw, good community and funny and at same time very strict teacher. What I liked most is that Said explains everything in detail, if even only one student doesn't get it, he'll explain again and again until we understand the whole thing. I don't feel shy asking questions in his classes and that helped me to progress a lot!",
+    content: "Shoks helped me increase my score by 200 points!",
     rating: 5,
     image: "/testimonials/sarvinoz.jpg"
   },
@@ -126,7 +125,7 @@ export default function Testimonials({ isDarkTheme = true }: TestimonialsProps) 
             >
               {/* Quote */}
               <div className="mb-6">
-                <Quote className={`w-8 h-8 mb-4 ${
+                <Star className={`w-8 h-8 mb-4 ${
                   isDarkTheme ? 'text-gray-600' : 'text-gray-300'
                 }`} />
                 <p className={`text-lg leading-relaxed ${
