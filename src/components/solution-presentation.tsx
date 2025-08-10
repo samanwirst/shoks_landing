@@ -90,7 +90,7 @@ export default function SolutionPresentation({ isDarkTheme = true }: SolutionPre
             }`}
           >
             Our exclusive methodology combines personalized preparation with proven strategies, 
-            designed by SAT experts who've helped hundreds gain admission to top colleges.
+            designed by SAT experts who&apos;ve helped hundreds gain admission to top colleges.
           </motion.p>
         </motion.div>
 

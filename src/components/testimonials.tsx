@@ -131,7 +131,7 @@ export default function Testimonials({ isDarkTheme = true }: TestimonialsProps) 
                 <p className={`text-lg leading-relaxed ${
                   isDarkTheme ? 'text-gray-200' : 'text-gray-700'
                 }`}>
-                  "{testimonial.content}"
+                  &quot;{testimonial.content}&quot;
                 </p>
               </div>
 
