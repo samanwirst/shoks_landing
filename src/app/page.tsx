@@ -2,13 +2,13 @@
 
 
 import { DynamicNavbar } from "@/components/DynamicNavbar";
-import { HeroGeometric } from "@/components/hero-geometric";
-import PainAmplification from '@/components/pain-amplification';
-import SolutionPresentation from '@/components/solution-presentation';
-import UniqueSellingPoints from '@/components/unique-selling-points';
-import Testimonials from '@/components/testimonials';
-import Results from '@/components/results';
-import Footer from '@/components/footer';
+import { HeroGeometric } from "@/components/HeroGeometric";
+import PainAmplification from '@/components/PainAmplification';
+import SolutionPresentation from '@/components/SolutionPresentation';
+import UniqueSellingPoints from '@/components/UniqueSellingPoints';
+import Testimonials from '@/components/Testimonials';
+import Results from '@/components/Results';
+import Footer from '@/components/Footer';
 import { BackgroundShapes } from '@/components/BackgroundShapes';
 
 export default function Home() {
