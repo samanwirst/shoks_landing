@@ -17,11 +17,9 @@ export function ButtonNav({ children, onClick, className = "", isWhiteTheme = fa
       style={style}
       className={`text-sm transition-colors duration-300 ease-out cursor-pointer ${
         isWhiteTheme 
-          ? 'text-gray-600 hover:text-gray-900' 
+          ? 'text-gray-500 hover:text-gray-900' 
           : 'text-gray-300 hover:text-white'
       } ${className}`}
-      whileHover={{ scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
       transition={{ duration: 0.15, ease: 'easeOut' }}
     >
       {children}
