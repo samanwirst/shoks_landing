@@ -90,7 +90,7 @@ export function HeroGeometric({
     };
 
     return (
-        <div className={cn(`relative min-h-screen w-full overflow-hidden`, isWhiteTheme ? 'bg-white' : 'bg-neutral-950')}>
+        <div id="hero" className={cn(`relative min-h-screen w-full overflow-hidden`, isWhiteTheme ? 'bg-white' : 'bg-neutral-950')}>
             <div className={`absolute inset-0 blur-3xl ${
                 isWhiteTheme 
                     ? 'bg-gradient-to-br from-orange-500/[0.1] via-transparent to-orange-500/[0.1]'
