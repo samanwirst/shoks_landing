@@ -5,7 +5,7 @@ import { motion, AnimatePresence, Variants, Transition } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
-import { ButtonNav } from './ButtonNav';
+import { ButtonNav } from '../Buttons/ButtonNav';
 
 interface DynamicNavbarProps {
   isWhiteTheme?: boolean;

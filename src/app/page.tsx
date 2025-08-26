@@ -1,15 +1,15 @@
 "use client";
 
 
-import { DynamicNavbar } from "@/components/DynamicNavbar";
-import { HeroGeometric } from "@/components/HeroGeometric";
-import PainAmplification from '@/components/PainAmplification';
-import SolutionPresentation from '@/components/SolutionPresentation';
-import UniqueSellingPoints from '@/components/UniqueSellingPoints';
-import Testimonials from '@/components/Testimonials';
-import Results from '@/components/Results';
-import Footer from '@/components/Footer';
-import { BackgroundShapes } from '@/components/BackgroundShapes';
+import { DynamicNavbar } from "@/components/Sections/DynamicNavbar";
+import { HeroGeometric } from "@/components/Sections/HeroGeometric";
+import PainAmplification from '@/components/Sections/PainAmplification';
+import SolutionPresentation from '@/components/Sections/SolutionPresentation';
+import UniqueSellingPoints from '@/components/Sections/UniqueSellingPoints';
+import Testimonials from '@/components/Sections/Testimonials';
+import Results from '@/components/Sections/Results';
+import Footer from '@/components/Sections/Footer';
+import { BackgroundShapes } from '@/components/Decorations/BackgroundShapes';
 
 export default function Home() {
 
