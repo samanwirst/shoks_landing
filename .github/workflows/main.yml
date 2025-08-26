@@ -1,0 +1,62 @@
+name: Deploy Shoks Landing
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            set -e
+            echo "🚀 Starting landing deployment..."
+
+            PROJECT_DIR="/var/www/shoks_landing"
+
+            echo "📦 Updating code..."
+            cd $PROJECT_DIR
+            git fetch origin
+            git reset --hard origin/main
+
+            echo "🔎 Ensure node/npm (via nvm) available..."
+            export NVM_DIR="$HOME/.nvm"
+            if [ -s "$NVM_DIR/nvm.sh" ]; then
+              source "$NVM_DIR/nvm.sh"
+            else
+              echo "⚠️ nvm not found at \$HOME/.nvm — will try node from PATH"
+            fi
+
+            # try to use needed node version (change if you need another)
+            nvm use 22 || true
+
+            echo "🧾 Node version:"
+            node -v || true
+            npm -v || true
+
+            echo "📦 Installing dependencies and building..."
+            npm ci
+            npm run build
+
+            echo "🔄 Start / reload process via pm2..."
+            if ! command -v pm2 >/dev/null 2>&1; then
+              npm i -g pm2
+            fi
+
+            pm2 describe shoks-landing >/dev/null 2>&1 \
+              && pm2 restart shoks-landing --update-env \
+              || pm2 start npm --name "shoks-landing" -- start
+
+            pm2 save
+
+            echo "✅ Landing deployment finished!"
