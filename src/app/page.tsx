@@ -2,7 +2,7 @@
 
 
 import { DynamicNavbar } from "@/components/Sections/DynamicNavbar";
-import { HeroGeometric } from "@/components/Sections/HeroGeometric";
+import { Hero } from "@/components/Sections/Hero";
 import PainAmplification from '@/components/Sections/PainAmplification';
 import SolutionPresentation from '@/components/Sections/SolutionPresentation';
 import UniqueSellingPoints from '@/components/Sections/UniqueSellingPoints';
@@ -17,7 +17,7 @@ export default function Home() {
     <main className="min-h-screen relative">
       <DynamicNavbar isWhiteTheme={true} />
 
-      <HeroGeometric isWhiteTheme={true} />
+      <Hero/>
       
       {/* Pain Amplification Section */}
       <div className="bg-slate-50 relative">
