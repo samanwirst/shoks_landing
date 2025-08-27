@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     siteName: "Shoks SAT",
     images: [
       {
-        url: "/logo/shoks-logo.png",
+        url: "/logo/shoks-logo-favicon.png",
         width: 512,
         height: 512,
         alt: "Shoks SAT Logo",
@@ -40,12 +40,12 @@ export const metadata: Metadata = {
     card: "summary",
     title: "Shoks SAT – Online SAT Preparation",
     description: "Prepare for the SAT with structured courses and practice.",
-    images: ["/logo/shoks-logo.png"],
+    images: ["/logo/shoks-logo-favicon.png"],
   },
   icons: {
-    icon: "/logo/shoks-logo.png",
-    shortcut: "/logo/shoks-logo.png",
-    apple: "/logo/shoks-logo.png",
+    icon: "/logo/shoks-logo-favicon.png",
+    shortcut: "/logo/shoks-logo-favicon.png",
+    apple: "/logo/shoks-logo-favicon.png",
   },
   manifest: "/site.webmanifest",
 };
