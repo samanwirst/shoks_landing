@@ -59,8 +59,8 @@ const createScrollAction = (id: string) => () => {
 const navItems: NavItem[] = [
   { label: "Services", action: createScrollAction("services") },
   { label: "Why Us", action: createScrollAction("unique-selling-points") },
-  { label: "Results", action: createScrollAction("results") },
   { label: "Reviews", action: createScrollAction("testimonials") },
+  { label: "Results", action: createScrollAction("results") },
   { label: "Get Started", action: createScrollAction("hero"), isPrimary: true },
 ];
 
