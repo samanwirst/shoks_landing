@@ -103,7 +103,7 @@ export default function PainAmplification({ isDarkTheme = false }: PainAmplifica
             <motion.div
               key={index}
               variants={itemVariants}
-              className={`p-6 rounded-2xl border transition-all duration-300 hover:scale-105 ${
+              className={`p-6 rounded-2xl border transition-all duration-300 ${
                 isDarkTheme 
                   ? 'bg-gray-900/50 border-gray-800 hover:border-gray-700' 
                   : 'bg-gray-50 border-gray-200 hover:border-gray-300 hover:shadow-lg'

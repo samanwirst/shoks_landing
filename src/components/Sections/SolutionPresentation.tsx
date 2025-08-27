@@ -105,7 +105,7 @@ export default function SolutionPresentation({ isDarkTheme = true }: SolutionPre
             <motion.div
               key={index}
               variants={itemVariants}
-              className={`p-8 rounded-2xl border transition-all duration-300 hover:scale-105 ${
+              className={`p-8 rounded-2xl border transition-all duration-300 ${
                 isDarkTheme 
                   ? 'bg-gray-900/50 border-gray-800 hover:border-[#FF5F23]/50' 
                   : 'bg-white border-gray-200 hover:border-[#FF5F23]/50 hover:shadow-xl'

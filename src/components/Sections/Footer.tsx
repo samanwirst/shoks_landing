@@ -39,8 +39,6 @@ export default function Footer({ isDarkTheme = true }: FooterProps) {
                   href="https://www.linkedin.com/company/shoks-sat/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
                   className={`p-3 rounded-full transition-all duration-300 ${
                     isDarkTheme 
                       ? 'bg-white/5 hover:bg-white/10 border border-white/20 text-white/80 hover:text-blue-400'
@@ -55,8 +53,6 @@ export default function Footer({ isDarkTheme = true }: FooterProps) {
                   href="https://www.instagram.com/shoks_sat?utm_source=ig_web_button_share_sheet&igsh=MTU5dGF5Y3hwZG85cw=="
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
                   className={`p-3 rounded-full transition-all duration-300 ${
                     isDarkTheme 
                       ? 'bg-white/5 hover:bg-white/10 border border-white/20 text-white/80 hover:text-pink-400'
@@ -71,8 +67,6 @@ export default function Footer({ isDarkTheme = true }: FooterProps) {
                   href="https://t.me/shoks_sat"
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
                   className={`p-3 rounded-full transition-all duration-300 ${
                     isDarkTheme 
                       ? 'bg-white/5 hover:bg-white/10 border border-white/20 text-white/80 hover:text-blue-300'
@@ -144,9 +138,7 @@ export default function Footer({ isDarkTheme = true }: FooterProps) {
                 href="https://forms.gle/C2k3btULzK2sdcsk7"
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="bg-[#FF5F23] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#FF5F23]/90 transition-colors shadow-lg hover:shadow-xl inline-block"
+                className="bg-[#FF5F23] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#FF5F23]/90 transition-colors shadow-lg hover:shadow-xl inline-block"
               >
                 Join Now
               </motion.a>

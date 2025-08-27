@@ -180,9 +180,7 @@ export default function Results({ isDarkTheme = false }: ResultsProps) {
             href="https://forms.gle/C2k3btULzK2sdcsk7"
             target="_blank"
             rel="noopener noreferrer"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-[#FF5F23] text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-[#FF5F23]/90 transition-colors shadow-lg hover:shadow-xl inline-block"
+            className="bg-[#FF5F23] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#FF5F23]/90 transition-colors shadow-lg hover:shadow-xl inline-block"
           >
             Start Your Journey
           </motion.a>

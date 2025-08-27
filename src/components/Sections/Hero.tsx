@@ -31,7 +31,7 @@ const buttonVariants = {
         transition: { duration: 0.4 },
     },
     hover: {
-        scale: 1.02,
+        scale: 1.00,
         transition: { duration: 0.15 },
     },
 };
@@ -96,7 +96,7 @@ export function Hero({
                             rel="noopener noreferrer"
                             variants={buttonVariants}
                             whileHover="hover"
-                            className="bg-[#FF5F23] hover:bg-[#FF5F23]/90 text-white px-8 py-4 rounded-sm text-base font-bold hover:shadow-[0_0_30px_rgba(255,95,35,0.7)] w-full sm:w-auto border border-[#FF5F23]/20 inline-block cursor-pointer"
+                            className="bg-[#FF5F23] hover:bg-[#FF5F23]/90 text-white px-8 py-4 rounded-sm text-base font-bold hover:shadow-[0_0_20px_rgba(255,95,35,0.7)] w-full sm:w-auto border border-[#FF5F23]/20 inline-block cursor-pointer"
                             style={{
                                 transition: 'all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
                             }}
@@ -126,7 +126,7 @@ export function Hero({
                             href="https://www.linkedin.com/company/shoks-sat/"
                             target="_blank"
                             rel="noopener noreferrer"
-                            whileHover={{ scale: 1.1 }}
+                            whileHover={{ scale: 1.0 }}
                             whileTap={{ scale: 0.95 }}
                             className={`${baseSocialBtn} hover:text-blue-600`}
                         >
@@ -138,7 +138,7 @@ export function Hero({
                             href="https://www.instagram.com/shoks_sat?utm_source=ig_web_button_share_sheet&igsh=MTU5dGF5Y3hwZG85cw=="
                             target="_blank"
                             rel="noopener noreferrer"
-                            whileHover={{ scale: 1.1 }}
+                            whileHover={{ scale: 1.0 }}
                             whileTap={{ scale: 0.95 }}
                             className={`${baseSocialBtn} hover:text-pink-600`}
                         >
@@ -150,7 +150,7 @@ export function Hero({
                             href="https://t.me/shoks_sat"
                             target="_blank"
                             rel="noopener noreferrer"
-                            whileHover={{ scale: 1.1 }}
+                            whileHover={{ scale: 1.0 }}
                             whileTap={{ scale: 0.95 }}
                             className={`${baseSocialBtn} hover:text-blue-500`}
                         >
