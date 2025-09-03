@@ -1,6 +1,7 @@
 {
   "name": "Shoks SAT – Online SAT & AP Preparation",
   "short_name": "Shoks SAT",
+  "category": ["Education", "EduTech"],
   "description": "Online school for SAT and AP preparation. Live and recorded courses, practice tests, and admissions support.",
   "start_url": "/",
   "scope": "/",
