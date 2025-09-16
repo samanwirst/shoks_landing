@@ -32,7 +32,7 @@ export default function ButtonThemeToggle() {
     if (!mounted) {
         return (
             <button
-                className="flex items-center justify-center w-10 h-10 cursor-pointer rounded-lg bg-[var(--accent)] text-[var(--accent-foreground)]"
+                className="flex items-center justify-center w-10 h-10 cursor-pointer rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800"
                 aria-label="Toggle theme"
                 title="Toggle theme"
                 disabled
@@ -47,7 +47,7 @@ export default function ButtonThemeToggle() {
             onClick={next}
             aria-label={`Toggle theme (current: ${currentTheme})`}
             title={`Theme: ${currentTheme} — click to switch`}
-            className="flex items-center justify-center w-10 h-10 rounded-lg cursor-pointer bg-[var(--accent)] text-[var(--accent-foreground)] hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors"
+            className="flex items-center justify-center w-10 h-10 rounded-lg cursor-pointer transition-colors hover:bg-gray-200 dark:hover:bg-gray-800"
         >
             {icons[currentTheme]}
         </button>

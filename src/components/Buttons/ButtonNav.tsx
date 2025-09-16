@@ -6,20 +6,15 @@ interface ButtonNavProps {
   children: React.ReactNode;
   onClick: () => void;
   className?: string;
-  isWhiteTheme?: boolean;
   style?: React.CSSProperties;
 }
 
-export function ButtonNav({ children, onClick, className = "", isWhiteTheme = false, style }: ButtonNavProps) {
+export function ButtonNav({ children, onClick, className = "", style }: ButtonNavProps) {
   return (
-    <motion.button 
+    <motion.button
       onClick={onClick}
       style={style}
-      className={`text-sm transition-colors duration-300 ease-out cursor-pointer ${
-        isWhiteTheme 
-          ? 'text-gray-500 hover:text-gray-900' 
-          : 'text-gray-300 hover:text-white'
-      } ${className}`}
+      className={`text-sm transition-colors duration-300 ease-out cursor-pointer text-gray-500 hover:text-black dark:text-gray-300 dark:hover:text-white ${className}`}
       transition={{ duration: 0.15, ease: 'easeOut' }}
     >
       {children}

@@ -8,10 +8,6 @@ import { Menu, X } from 'lucide-react';
 import { ButtonNav } from '../Buttons/ButtonNav';
 import ButtonThemeToggle from '../Buttons/ButtonThemeToggle';
 
-interface DynamicNavbarProps {
-  isWhiteTheme?: boolean;
-}
-
 interface NavItem {
   label: string;
   action: () => void;
@@ -37,13 +33,9 @@ const mobileMenuVariants: Variants = {
 const NAVBAR_CONFIG = {
   height: { top: "80px", scrolled: "60px" },
   bg: {
-    white: {
-      top: "rgba(255, 255, 255, 0)",
-      scrolled: "rgba(255, 255, 255, 0.95)",
-    },
     dark: {
-      top: "rgba(10, 10, 10, 0)",
-      scrolled: "rgba(10, 10, 10, 0.8)",
+      top: "rgba(15, 23, 42, 0)",
+      scrolled: "rgba(15, 23, 42, 0.8)",
     },
   },
   shadow:
@@ -65,7 +57,7 @@ const navItems: NavItem[] = [
   { label: "Get Started", action: createScrollAction("hero"), isPrimary: true },
 ];
 
-export function DynamicNavbar({ isWhiteTheme = false }: DynamicNavbarProps) {
+export function DynamicNavbar() {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -99,16 +91,12 @@ export function DynamicNavbar({ isWhiteTheme = false }: DynamicNavbarProps) {
   const navbarVariants: Variants = {
     top: {
       height: NAVBAR_CONFIG.height.top,
-      backgroundColor: isWhiteTheme
-        ? NAVBAR_CONFIG.bg.white.top
-        : NAVBAR_CONFIG.bg.dark.top,
+      backgroundColor: NAVBAR_CONFIG.bg.dark.top,
       backdropFilter: 'blur(0px)',
     },
     scrolled: {
       height: NAVBAR_CONFIG.height.scrolled,
-      backgroundColor: isWhiteTheme
-        ? NAVBAR_CONFIG.bg.white.scrolled
-        : NAVBAR_CONFIG.bg.dark.scrolled,
+      backgroundColor: NAVBAR_CONFIG.bg.dark.scrolled,
       backdropFilter: 'blur(10px)',
       boxShadow: NAVBAR_CONFIG.shadow,
     },
@@ -122,7 +110,7 @@ export function DynamicNavbar({ isWhiteTheme = false }: DynamicNavbarProps) {
         transition={transition}
         className="fixed top-0 left-0 right-0 z-50 w-full"
       >
-        <div className="container dark:bg-black mx-auto px-4 md:px-6 h-full flex items-center justify-between">
+        <div className="container mx-auto px-4 md:px-6 h-full flex items-center justify-between">
           <motion.div
             variants={contentVariants}
             animate={scrolled ? 'scrolled' : 'top'}
@@ -139,9 +127,7 @@ export function DynamicNavbar({ isWhiteTheme = false }: DynamicNavbarProps) {
                   className="transition-transform duration-300 ease-out"
                   priority
                 />
-                <span className={`font-bold text-lg transition-colors duration-300 ease-out ${
-                  isWhiteTheme ? 'text-gray-900' : 'text-white'
-                }`}>
+                <span className="font-bold text-lg transition-colors duration-300 ease-out text-gray-900 dark:text-white">
                   Shoks SAT
                 </span>
               </div>
@@ -157,7 +143,6 @@ export function DynamicNavbar({ isWhiteTheme = false }: DynamicNavbarProps) {
                       item.action();
                       setIsOpen(false);
                     }}
-                    isWhiteTheme={isWhiteTheme}
                   >
                     {item.label}
                   </ButtonNav>
@@ -183,9 +168,7 @@ export function DynamicNavbar({ isWhiteTheme = false }: DynamicNavbarProps) {
             <div className="md:hidden">
               <motion.button
                 onClick={() => setIsOpen(!isOpen)}
-                className={`transition-colors duration-300 ease-out ${
-                  isWhiteTheme ? 'text-gray-900' : 'text-white'
-                }`}
+                className="transition-colors duration-300 ease-out text-gray-900 dark:text-white"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 transition={{ duration: 0.15, ease: 'easeOut' }}
@@ -204,11 +187,7 @@ export function DynamicNavbar({ isWhiteTheme = false }: DynamicNavbarProps) {
               initial="hidden"
               animate="visible"
               exit="exit"
-              className={`md:hidden absolute top-full left-0 w-full backdrop-blur-lg shadow-lg ${
-                isWhiteTheme
-                  ? 'bg-white/95 border-t border-gray-200'
-                  : 'bg-black/80 border-t border-gray-800'
-                }`}
+              className="md:hidden absolute top-full left-0 w-full backdrop-blur-lg shadow-lg bg-white/95 dark:bg-black/80 border-t border-gray-200 dark:border-gray-800"
             >
               <div className="container mx-auto px-4 md:px-6 py-4 flex flex-col items-center gap-4">
                 {navItems.map((item) => (
@@ -219,7 +198,6 @@ export function DynamicNavbar({ isWhiteTheme = false }: DynamicNavbarProps) {
                       setIsOpen(false);
                     }}
                     className="block py-2 text-lg"
-                    isWhiteTheme={isWhiteTheme}
                   >
                     {item.label}
                   </ButtonNav>

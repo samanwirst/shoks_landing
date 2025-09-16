@@ -79,14 +79,14 @@
 }
 
 .dark {
-  --background: rgb(10, 10, 10);
+  --background: rgb(15, 23, 42);
   --foreground: rgb(250, 250, 250);
   --card: rgb(23, 23, 23);
   --card-foreground: rgb(250, 250, 250);
   --popover: rgb(23, 23, 23);
   --popover-foreground: rgb(250, 250, 250);
   --primary: rgb(236, 236, 236);
-  --primary-foreground: rgb(23, 23, 23);
+  --primary-foreground: rgb(30, 41, 59);
   --secondary: rgb(69, 69, 69);
   --secondary-foreground: rgb(250, 250, 250);
   --muted: rgb(69, 69, 69);
