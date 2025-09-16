@@ -39,7 +39,7 @@ export default function Home() {
       <div className="bg-slate-50 relative" id="unique-selling-points">
         <BackgroundShapes variant="light" density="high" />
         <div className="relative z-10">
-          <UniqueSellingPoints isDarkTheme={false} />
+          <UniqueSellingPoints />
         </div>
       </div>
       

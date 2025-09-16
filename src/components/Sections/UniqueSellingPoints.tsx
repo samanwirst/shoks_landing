@@ -39,11 +39,7 @@ const scarcityIndicators = [
   }
 ];
 
-interface UniqueSellingPointsProps {
-  isDarkTheme?: boolean;
-}
-
-export default function UniqueSellingPoints({ isDarkTheme = true }: UniqueSellingPointsProps) {
+export default function UniqueSellingPoints() {
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
@@ -68,7 +64,7 @@ export default function UniqueSellingPoints({ isDarkTheme = true }: UniqueSellin
   };
 
   return (
-    <section className={`py-20 px-6 ${isDarkTheme ? 'bg-black text-white' : 'bg-white text-gray-900'}`}>
+    <section className="py-20 px-6 bg-background text-gray-900 dark:text-white">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div
@@ -82,19 +78,17 @@ export default function UniqueSellingPoints({ isDarkTheme = true }: UniqueSellin
             <Lock className="w-4 h-4 text-[#FF5F23] mr-2" />
             <span className="text-[#FF5F23] font-medium text-sm">Exclusive Access</span>
           </motion.div>
-          
-          <motion.h2 
+
+          <motion.h2
             variants={itemVariants}
-            className="text-4xl md:text-5xl font-bold mb-6"
+            className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white"
           >
             What Makes Us Different
           </motion.h2>
-          
-          <motion.p 
+
+          <motion.p
             variants={itemVariants}
-            className={`text-xl md:text-2xl leading-relaxed max-w-4xl mx-auto ${
-              isDarkTheme ? 'text-gray-300' : 'text-gray-600'
-            }`}
+            className="text-xl md:text-2xl leading-relaxed max-w-4xl mx-auto text-gray-600 dark:text-gray-300"
           >
             Access benefits and resources that simply aren&apos;t available anywhere else
           </motion.p>
@@ -112,11 +106,7 @@ export default function UniqueSellingPoints({ isDarkTheme = true }: UniqueSellin
             <motion.div
               key={index}
               variants={itemVariants}
-              className={`relative p-8 rounded-2xl border transition-all duration-300 ${
-                isDarkTheme 
-                  ? 'bg-gray-900/50 border-gray-800 hover:border-[#FF5F23]/50' 
-                  : 'bg-gray-50 border-gray-200 hover:border-[#FF5F23]/50 hover:shadow-xl'
-              }`}
+              className="relative p-8 rounded-2xl border transition-all duration-300 bg-gray-50 border-gray-200 hover:border-[#FF5F23] hover:shadow-xl dark:bg-gray-900/50 dark:border-gray-800 dark:hover:border-[#FF5F23] dark:border-2 dark:hover:shadow-[0_0_20px_rgba(255,95,35,0.7)]"
             >
               {/* Badge */}
               <div className="absolute -top-3 left-6">
@@ -125,16 +115,12 @@ export default function UniqueSellingPoints({ isDarkTheme = true }: UniqueSellin
                 </span>
               </div>
 
-              <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 ${
-                isDarkTheme ? 'bg-[#FF5F23]/20' : 'bg-[#FF5F23]/10'
-              }`}>
+              <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 bg-[#FF5F23]/10 dark:bg-[#FF5F23]/20">
                 <feature.icon className="w-8 h-8 text-[#FF5F23]" />
               </div>
-              
-              <h3 className="text-xl font-semibold mb-4">{feature.title}</h3>
-              <p className={`leading-relaxed ${
-                isDarkTheme ? 'text-gray-400' : 'text-gray-600'
-              }`}>
+
+              <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{feature.title}</h3>
+              <p className="leading-relaxed text-gray-600 dark:text-gray-400">
                 {feature.description}
               </p>
             </motion.div>
@@ -147,17 +133,13 @@ export default function UniqueSellingPoints({ isDarkTheme = true }: UniqueSellin
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={containerVariants}
-          className={`p-8 md:p-12 rounded-3xl border mb-16 ${
-            isDarkTheme 
-              ? 'bg-gradient-to-r from-red-950/20 to-orange-950/20 border-red-900/30' 
-              : 'bg-gradient-to-r from-red-50 to-orange-50 border-red-200'
-          }`}
+          className="p-8 md:p-12 rounded-3xl border mb-16 bg-gradient-to-r from-red-50 to-orange-50 border-red-200 dark:from-red-950/20 dark:to-orange-950/20 dark:border-red-900/30"
         >
           <motion.div variants={itemVariants} className="text-center mb-8">
-            <h3 className="text-2xl md:text-3xl font-bold mb-4">
+            <h3 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 dark:text-white">
               Limited Availability
             </h3>
-            <p className={`text-lg ${isDarkTheme ? 'text-gray-300' : 'text-gray-600'}`}>
+            <p className="text-lg text-gray-600 dark:text-gray-300">
               We don&apos;t just teach test-taking tricks—we build genuine understanding that receives personalized attention
             </p>
           </motion.div>
@@ -170,14 +152,10 @@ export default function UniqueSellingPoints({ isDarkTheme = true }: UniqueSellin
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className={`flex items-center justify-center p-4 rounded-xl ${
-                  isDarkTheme ? 'bg-gray-900/50' : 'bg-white/80'
-                }`}
+                className="flex items-center justify-center p-4 rounded-xl bg-white/80 dark:bg-gray-900/50"
               >
                 <indicator.icon className="w-5 h-5 text-[#FF5F23] mr-3 flex-shrink-0" />
-                <span className={`text-sm font-medium ${
-                  isDarkTheme ? 'text-gray-300' : 'text-gray-700'
-                }`}>
+                <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
                   {indicator.text}
                 </span>
               </motion.div>
@@ -191,21 +169,15 @@ export default function UniqueSellingPoints({ isDarkTheme = true }: UniqueSellin
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={itemVariants}
-          className={`text-center p-8 rounded-2xl ${
-            isDarkTheme ? 'bg-gray-900/30' : 'bg-gray-50'
-          }`}
+          className="text-center p-8 rounded-2xl bg-gray-50 dark:bg-gray-800/20"
         >
-          <h3 className="text-2xl md:text-3xl font-bold mb-4">
+          <h3 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 dark:text-white">
             Why Students Choose Shoks SAT
           </h3>
-          <p className={`text-lg leading-relaxed max-w-3xl mx-auto mb-8 ${
-            isDarkTheme ? 'text-gray-300' : 'text-gray-600'
-          }`}>
-            While other programs offer generic preparation, we provide exclusive access to 
+          <p className="text-lg leading-relaxed max-w-3xl mx-auto mb-8 text-gray-600 dark:text-gray-300">
+            While other programs offer generic preparation, we provide exclusive access to
             personalized strategies and resources that adapt to your unique learning style.
           </p>
-          
-
         </motion.div>
       </div>
     </section>
