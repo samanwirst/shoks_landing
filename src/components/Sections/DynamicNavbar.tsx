@@ -37,9 +37,13 @@ const NAVBAR_CONFIG = {
       top: "rgba(15, 23, 42, 0)",
       scrolled: "rgba(15, 23, 42, 0.8)",
     },
+    light: {
+      top: "rgba(255, 255, 255, 0)",
+      scrolled: "rgba(255, 255, 255, 0.95)",
+    },
   },
   shadow:
-    "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)",
+    "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06)",
 };
 
 const createScrollAction = (id: string) => () => {
@@ -60,6 +64,7 @@ const navItems: NavItem[] = [
 export function DynamicNavbar() {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
     document.documentElement.style.setProperty('--navbar-height', NAVBAR_CONFIG.height.top);
@@ -88,15 +93,40 @@ export function DynamicNavbar() {
     document.documentElement.style.setProperty('--navbar-height', height);
   }, [scrolled]);
 
+  // detect current theme (assumes theme toggling adds/removes 'dark' on <html>)
+  useEffect(() => {
+    const el = document.documentElement;
+    const updateTheme = () => {
+      setIsDark(el.classList.contains("dark"));
+    };
+    updateTheme();
+
+    // observe class attribute changes on <html> to react to theme toggles
+    const mo = new MutationObserver((mutations) => {
+      for (const m of mutations) {
+        if (m.type === "attributes" && m.attributeName === "class") {
+          updateTheme();
+        }
+      }
+    });
+    mo.observe(el, { attributes: true });
+    return () => mo.disconnect();
+  }, []);
+
   const navbarVariants: Variants = {
     top: {
       height: NAVBAR_CONFIG.height.top,
-      backgroundColor: NAVBAR_CONFIG.bg.dark.top,
+      backgroundColor: isDark
+        ? NAVBAR_CONFIG.bg.dark.top
+        : NAVBAR_CONFIG.bg.light.top,
       backdropFilter: 'blur(0px)',
+      boxShadow: 'none',
     },
     scrolled: {
       height: NAVBAR_CONFIG.height.scrolled,
-      backgroundColor: NAVBAR_CONFIG.bg.dark.scrolled,
+      backgroundColor: isDark
+        ? NAVBAR_CONFIG.bg.dark.scrolled
+        : NAVBAR_CONFIG.bg.light.scrolled,
       backdropFilter: 'blur(10px)',
       boxShadow: NAVBAR_CONFIG.shadow,
     },
@@ -127,7 +157,8 @@ export function DynamicNavbar() {
                   className="transition-transform duration-300 ease-out"
                   priority
                 />
-                <span className="font-bold text-lg transition-colors duration-300 ease-out text-gray-900 dark:text-white">
+                {/* text color handled by tailwind dark: and normal classes */}
+                <span className={`font-bold text-lg transition-colors duration-300 ease-out ${isDark ? "text-white" : "text-gray-900"}`}>
                   Shoks SAT
                 </span>
               </div>
@@ -168,7 +199,7 @@ export function DynamicNavbar() {
             <div className="md:hidden">
               <motion.button
                 onClick={() => setIsOpen(!isOpen)}
-                className="transition-colors duration-300 ease-out text-gray-900 dark:text-white"
+                className={`transition-colors duration-300 ease-out ${isDark ? "text-white" : "text-gray-900"}`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 transition={{ duration: 0.15, ease: 'easeOut' }}
@@ -187,7 +218,11 @@ export function DynamicNavbar() {
               initial="hidden"
               animate="visible"
               exit="exit"
-              className="md:hidden absolute top-full left-0 w-full backdrop-blur-lg shadow-lg bg-white/95 dark:bg-black/80 border-t border-gray-200 dark:border-gray-800"
+              className={`md:hidden absolute top-full left-0 w-full backdrop-blur-lg shadow-lg border-t ${
+                isDark
+                  ? "bg-black/80 border-gray-800 text-white"
+                  : "bg-white/95 border-gray-200 text-gray-900"
+              }`}
             >
               <div className="container mx-auto px-4 md:px-6 py-4 flex flex-col items-center gap-4">
                 {navItems.map((item) => (
@@ -210,10 +245,7 @@ export function DynamicNavbar() {
       </motion.nav>
 
       <div
-        className="fixed right-4 md:right-6 z-[60] transition-all duration-300 linear"
-        style={{
-          top: 'calc(var(--navbar-height) / 2 - 20px)',
-        }}
+        className="fixed right-4 bottom-4 h-10 z-[60] transition-all duration-300 linear"
       >
         <ButtonThemeToggle />
       </div>
