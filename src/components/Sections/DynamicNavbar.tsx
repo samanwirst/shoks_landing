@@ -220,7 +220,7 @@ export function DynamicNavbar() {
               exit="exit"
               className={`md:hidden absolute top-full left-0 w-full backdrop-blur-lg shadow-lg border-t ${
                 isDark
-                  ? "bg-black/80 border-gray-800 text-white"
+                  ? "bg-[#0f172a]/90 border-gray-800 text-white"
                   : "bg-white/95 border-gray-200 text-gray-900"
               }`}
             >

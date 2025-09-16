@@ -31,7 +31,7 @@ export default function Home() {
       <div className="bg-slate-100 relative" id="services" data-section="solution">
         <BackgroundShapes variant="light" density="medium" />
         <div className="relative z-10">
-          <SolutionPresentation isDarkTheme={false} />
+          <SolutionPresentation />
         </div>
       </div>
       

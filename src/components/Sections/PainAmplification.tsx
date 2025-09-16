@@ -97,7 +97,7 @@ export default function PainAmplification() {
             <motion.div
               key={index}
               variants={itemVariants}
-              className="p-6 rounded-2xl border transition-all duration-300 ease-out bg-gray-50 border-gray-200 hover:border-gray-300 hover:shadow-lg dark:bg-gray-900/50 dark:border-gray-800 dark:hover:border-gray-700 dark:hover:shadow-[0_0_10px_rgba(255,255,255,1)]"
+              className="p-6 rounded-2xl border transition-all duration-300 ease-out bg-gray-50 border-gray-200 hover:border-gray-300 hover:shadow-lg dark:bg-gray-900/50 dark:border-gray-800 dark:hover:border-white dark:border-2 dark:hover:shadow-[0_0_10px_rgba(255,255,255,1)]"
             >
               <div className="w-12 h-12 rounded-full flex items-center justify-center mb-4 bg-red-100 dark:bg-red-500/20">
                 <anxiety.icon className="w-6 h-6 text-red-600 dark:text-red-400" />
