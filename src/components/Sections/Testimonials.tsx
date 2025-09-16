@@ -34,13 +34,7 @@ const testimonials = [
   }
 ];
 
-
-
-interface TestimonialsProps {
-  isDarkTheme?: boolean;
-}
-
-export default function Testimonials({ isDarkTheme = true }: TestimonialsProps) {
+export default function Testimonials() {
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
@@ -65,7 +59,7 @@ export default function Testimonials({ isDarkTheme = true }: TestimonialsProps) 
   };
 
   return (
-    <section className={`py-20 px-6 ${isDarkTheme ? 'bg-gray-950 text-white' : 'bg-gray-50 text-gray-900'}`}>
+    <section className="py-20 px-6 bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-white">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div
@@ -81,26 +75,16 @@ export default function Testimonials({ isDarkTheme = true }: TestimonialsProps) 
                 <Star key={i} className="w-6 h-6 text-yellow-400 fill-current" />
               ))}
             </div>
-            <span className={`ml-3 text-sm font-medium ${
-              isDarkTheme ? 'text-gray-400' : 'text-gray-600'
-            }`}>
+            <span className="ml-3 text-sm font-medium text-gray-600 dark:text-gray-400">
               4.9/5 from 500+ students
             </span>
           </motion.div>
-          
-          <motion.h2 
-            variants={itemVariants}
-            className="text-4xl md:text-5xl font-bold mb-6"
-          >
+
+          <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white">
             What Our Students Say
           </motion.h2>
-          
-          <motion.p 
-            variants={itemVariants}
-            className={`text-lg md:text-xl max-w-3xl mx-auto ${
-              isDarkTheme ? 'text-gray-300' : 'text-gray-600'
-            }`}
-          >
+
+          <motion.p variants={itemVariants} className="text-lg md:text-xl max-w-3xl mx-auto text-gray-700 dark:text-gray-300">
             Hear directly from our Booster Cohort students about their learning experience
           </motion.p>
         </motion.div>
@@ -117,20 +101,12 @@ export default function Testimonials({ isDarkTheme = true }: TestimonialsProps) 
             <motion.div
               key={index}
               variants={itemVariants}
-              className={`p-8 rounded-2xl border ${
-                isDarkTheme 
-                  ? 'bg-gray-900/50 border-gray-700 hover:bg-gray-900/70' 
-                  : 'bg-white border-gray-200 hover:bg-gray-50 shadow-lg hover:shadow-xl'
-              } transition-all duration-300`}
+              className="p-8 rounded-2xl border bg-white border-gray-200 hover:bg-gray-50 shadow-lg hover:shadow-xl dark:bg-gray-900/50 dark:border-gray-700 dark:hover:bg-gray-900/70 dark:border-2 dark:hover:border-white dark:hover:shadow-[0_0_20px_rgba(255,255,255,0.7)] transition-all duration-300"
             >
               {/* Quote */}
               <div className="mb-6">
-                <Star className={`w-8 h-8 mb-4 ${
-                  isDarkTheme ? 'text-gray-600' : 'text-gray-300'
-                }`} />
-                <p className={`text-lg leading-relaxed ${
-                  isDarkTheme ? 'text-gray-200' : 'text-gray-700'
-                }`}>
+                <Star className="w-8 h-8 mb-4 text-gray-300 dark:text-gray-600" />
+                <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-200">
                   &quot;{testimonial.content}&quot;
                 </p>
               </div>
@@ -144,29 +120,17 @@ export default function Testimonials({ isDarkTheme = true }: TestimonialsProps) 
 
               {/* Student Info */}
               <div className="flex items-center">
-                <div className={`w-12 h-12 rounded-full flex items-center justify-center mr-4 ${
-                  isDarkTheme ? 'bg-gray-700' : 'bg-gray-200'
-                }`}>
-                  <span className="text-lg font-semibold text-[#FF5F23]">
-                    {testimonial.name.charAt(0)}
-                  </span>
+                <div className="w-12 h-12 rounded-full flex items-center justify-center mr-4 bg-gray-200 dark:bg-gray-700">
+                  <span className="text-lg font-semibold text-[#FF5F23]">{testimonial.name.charAt(0)}</span>
                 </div>
                 <div>
-                  <div className="font-semibold">{testimonial.name}</div>
-                  <div className={`text-sm ${isDarkTheme ? 'text-gray-400' : 'text-gray-600'}`}>
-                    {testimonial.role}
-                  </div>
+                  <div className="font-semibold text-gray-900 dark:text-white">{testimonial.name}</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">{testimonial.role}</div>
                 </div>
               </div>
             </motion.div>
           ))}
         </motion.div>
-
-
-
-
-
-
       </div>
     </section>
   );
