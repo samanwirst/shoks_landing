@@ -15,7 +15,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen relative">
-      <DynamicNavbar isWhiteTheme={true} />
+      <DynamicNavbar />
 
       <Hero/>
       
@@ -23,7 +23,7 @@ export default function Home() {
       <div className="bg-slate-50 relative">
         <BackgroundShapes variant="light" density="low" />
         <div className="relative z-10">
-          <PainAmplification isDarkTheme={false} />
+          <PainAmplification />
         </div>
       </div>
       

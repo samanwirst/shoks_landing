@@ -11,7 +11,7 @@ const anxieties = [
   },
   {
     icon: Clock,
-    title: "Test Day Anxiety", 
+    title: "Test Day Anxiety",
     description: "Terrified of underperforming when it matters most?"
   },
   {
@@ -26,11 +26,7 @@ const anxieties = [
   }
 ];
 
-interface PainAmplificationProps {
-  isDarkTheme?: boolean;
-}
-
-export default function PainAmplification({ isDarkTheme = false }: PainAmplificationProps) {
+export default function PainAmplification() {
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
@@ -67,7 +63,7 @@ export default function PainAmplification({ isDarkTheme = false }: PainAmplifica
   };
 
   return (
-    <section className={`py-20 px-6 ${isDarkTheme ? 'bg-black text-white' : 'bg-white text-gray-900'}`}>
+    <section className="py-20 px-6 bg-white dark:bg-gray-900">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial="hidden"
@@ -76,17 +72,15 @@ export default function PainAmplification({ isDarkTheme = false }: PainAmplifica
           variants={containerVariants}
           className="text-center mb-16"
         >
-          <motion.h2 
+          <motion.h2
             variants={itemVariants}
-            className="text-4xl md:text-5xl font-bold mb-6"
+            className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white"
           >
             You&apos;re Not Alone in This
           </motion.h2>
-          <motion.p 
+          <motion.p
             variants={itemVariants}
-            className={`text-xl md:text-2xl leading-relaxed max-w-4xl mx-auto ${
-              isDarkTheme ? 'text-gray-300' : 'text-gray-600'
-            }`}
+            className="text-xl md:text-2xl leading-relaxed max-w-4xl mx-auto text-gray-600 dark:text-gray-300"
           >
             Is the SAT standing between you and your future? Thousands of talented students feel exactly the same way.
           </motion.p>
@@ -103,21 +97,13 @@ export default function PainAmplification({ isDarkTheme = false }: PainAmplifica
             <motion.div
               key={index}
               variants={itemVariants}
-              className={`p-6 rounded-2xl border transition-all duration-300 ${
-                isDarkTheme 
-                  ? 'bg-gray-900/50 border-gray-800 hover:border-gray-700' 
-                  : 'bg-gray-50 border-gray-200 hover:border-gray-300 hover:shadow-lg'
-              }`}
+              className="p-6 rounded-2xl border transition-all duration-300 ease-out bg-gray-50 border-gray-200 hover:border-gray-300 hover:shadow-lg dark:bg-gray-900/50 dark:border-gray-800 dark:hover:border-gray-700 dark:hover:shadow-[0_0_10px_rgba(255,255,255,1)]"
             >
-              <div className={`w-12 h-12 rounded-full flex items-center justify-center mb-4 ${
-                isDarkTheme ? 'bg-red-500/20' : 'bg-red-100'
-              }`}>
-                <anxiety.icon className={`w-6 h-6 ${isDarkTheme ? 'text-red-400' : 'text-red-600'}`} />
+              <div className="w-12 h-12 rounded-full flex items-center justify-center mb-4 bg-red-100 dark:bg-red-500/20">
+                <anxiety.icon className="w-6 h-6 text-red-600 dark:text-red-400" />
               </div>
-              <h3 className="text-lg font-semibold mb-3">{anxiety.title}</h3>
-              <p className={`text-sm leading-relaxed ${
-                isDarkTheme ? 'text-gray-400' : 'text-gray-600'
-              }`}>
+              <h3 className="text-lg font-semibold mb-3 text-gray-900 dark:text-white">{anxiety.title}</h3>
+              <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">
                 {anxiety.description}
               </p>
             </motion.div>
@@ -131,9 +117,7 @@ export default function PainAmplification({ isDarkTheme = false }: PainAmplifica
           variants={itemVariants}
           className="text-center mt-16"
         >
-          <p className={`text-lg md:text-xl italic max-w-3xl mx-auto ${
-            isDarkTheme ? 'text-gray-300' : 'text-gray-600'
-          }`}>
+          <p className="text-lg md:text-xl italic max-w-3xl mx-auto text-gray-600 dark:text-gray-300">
             &quot;Every high-achieving student faces these exact same fears. The difference? 
             Some find the right guidance to overcome them.&quot;
           </p>
