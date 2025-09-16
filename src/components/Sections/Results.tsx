@@ -12,7 +12,7 @@ const results = [
     improvement: "+230"
   },
   {
-    name: "Javohir Shomurodov", 
+    name: "Javohir Shomurodov",
     totalScore: 1500,
     ebrwScore: 700,
     mathScore: 800,
@@ -34,15 +34,7 @@ const results = [
   }
 ];
 
-
-
-
-
-interface ResultsProps {
-  isDarkTheme?: boolean;
-}
-
-export default function Results({ isDarkTheme = false }: ResultsProps) {
+export default function Results() {
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
@@ -67,7 +59,7 @@ export default function Results({ isDarkTheme = false }: ResultsProps) {
   };
 
   return (
-    <section className={`py-20 px-6 ${isDarkTheme ? 'bg-gray-950 text-white' : 'bg-white text-gray-900'}`}>
+    <section className="py-20 px-6 bg-background text-gray-900 dark:text-white">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div
@@ -77,24 +69,20 @@ export default function Results({ isDarkTheme = false }: ResultsProps) {
           variants={containerVariants}
           className="text-center mb-16"
         >
-          <motion.h2 
+          <motion.h2
             variants={itemVariants}
-            className="text-4xl md:text-5xl font-bold mb-6"
+            className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white"
           >
             Real Students, Real Results
           </motion.h2>
-          
-          <motion.p 
+
+          <motion.p
             variants={itemVariants}
-            className={`text-lg md:text-xl max-w-3xl mx-auto ${
-              isDarkTheme ? 'text-gray-300' : 'text-gray-600'
-            }`}
+            className="text-lg md:text-xl max-w-3xl mx-auto text-gray-600 dark:text-gray-300"
           >
             See how our students transformed their SAT scores and gained admission to their dream colleges
           </motion.p>
         </motion.div>
-
-
 
         {/* Results Grid */}
         <motion.div
@@ -108,17 +96,13 @@ export default function Results({ isDarkTheme = false }: ResultsProps) {
             <motion.div
               key={index}
               variants={itemVariants}
-              className={`p-8 rounded-2xl border ${
-                isDarkTheme 
-                  ? 'bg-gray-900/50 border-gray-700 hover:bg-gray-900/70' 
-                  : 'bg-white border-gray-200 hover:bg-gray-50 shadow-lg hover:shadow-xl'
-              } transition-all duration-300`}
+              className="p-8 rounded-2xl border bg-white border-gray-200 hover:bg-gray-50 shadow-lg hover:shadow-xl dark:bg-gray-900/50 dark:border-gray-700 dark:hover:bg-gray-900/70 dark:border-2 dark:hover:border-white dark:hover:shadow-[0_0_20px_rgba(255,255,255,0.7)] transition-all duration-300"
             >
               {/* Student Name */}
               <div className="flex items-center justify-between mb-6">
                 <div>
-                  <h3 className="text-xl font-bold">{result.name}</h3>
-                  <div className={`text-sm ${isDarkTheme ? 'text-gray-400' : 'text-gray-600'}`}>
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">{result.name}</h3>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">
                     Booster Cohort Graduate
                   </div>
                 </div>
@@ -126,7 +110,7 @@ export default function Results({ isDarkTheme = false }: ResultsProps) {
                   <div className="text-2xl font-bold text-[#FF5F23]">
                     {result.totalScore}
                   </div>
-                  <div className={`text-sm ${isDarkTheme ? 'text-gray-400' : 'text-gray-600'}`}>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">
                     Total Score
                   </div>
                 </div>
@@ -134,28 +118,20 @@ export default function Results({ isDarkTheme = false }: ResultsProps) {
 
               {/* Score Breakdown */}
               <div className="grid grid-cols-2 gap-4 mb-4">
-                <div className={`p-4 rounded-lg ${
-                  isDarkTheme ? 'bg-gray-800' : 'bg-gray-50'
-                }`}>
-                  <div className="text-lg font-semibold">{result.ebrwScore}</div>
-                  <div className={`text-sm ${isDarkTheme ? 'text-gray-400' : 'text-gray-600'}`}>
-                    EBRW
-                  </div>
+                <div className="p-4 rounded-lg bg-gray-50 dark:bg-gray-800">
+                  <div className="text-lg font-semibold text-gray-900 dark:text-white">{result.ebrwScore}</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">EBRW</div>
                 </div>
-                <div className={`p-4 rounded-lg ${
-                  isDarkTheme ? 'bg-gray-800' : 'bg-gray-50'
-                }`}>
-                  <div className="text-lg font-semibold">{result.mathScore}</div>
-                  <div className={`text-sm ${isDarkTheme ? 'text-gray-400' : 'text-gray-600'}`}>
-                    Math
-                  </div>
+                <div className="p-4 rounded-lg bg-gray-50 dark:bg-gray-800">
+                  <div className="text-lg font-semibold text-gray-900 dark:text-white">{result.mathScore}</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">Math</div>
                 </div>
               </div>
 
               {/* Improvement Badge */}
               <div className="flex items-center justify-center">
-                <div className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold">
-                  <TrendingUp className="w-4 h-4 inline mr-1" />
+                <div className="bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-300 px-3 py-1 rounded-full text-sm font-semibold inline-flex items-center">
+                  <TrendingUp className="w-4 h-4 inline-block mr-2" />
                   {result.improvement} points
                 </div>
               </div>
@@ -171,16 +147,14 @@ export default function Results({ isDarkTheme = false }: ResultsProps) {
           variants={itemVariants}
           className="text-center"
         >
-          <p className={`text-lg md:text-xl mb-8 max-w-3xl mx-auto ${
-            isDarkTheme ? 'text-gray-300' : 'text-gray-600'
-          }`}>
+          <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto text-gray-600 dark:text-gray-300">
             Ready to achieve your target SAT score? Join our next cohort and get personalized coaching.
           </p>
           <motion.a
             href="https://forms.gle/C2k3btULzK2sdcsk7"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-[#FF5F23] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#FF5F23]/90 transition-colors shadow-lg hover:shadow-xl inline-block"
+            className="bg-[#FF5F23] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#FF5F23] hover:shadow-[0_0_20px_rgba(255,95,35,0.7)] transition-all duration-150 ease-out shadow-lg inline-block"
           >
             Start Your Journey
           </motion.a>

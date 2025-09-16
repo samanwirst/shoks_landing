@@ -57,7 +57,7 @@ export default function Home() {
       <div className="bg-slate-50 relative" id="results">
         <BackgroundShapes variant="light" density="low" />
         <div className="relative z-10">
-          <Results isDarkTheme={false} />
+          <Results />
         </div>
       </div>
       
