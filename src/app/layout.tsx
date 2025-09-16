@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { cookies } from "next/headers";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -11,6 +12,21 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
+const initialThemeScript = `
+(function () {
+  try {
+    var hasCookie = /(^|;)\\s*theme\\s*=\\s*([^;]+)/.test(document.cookie);
+    if (hasCookie) return;
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.documentElement.classList.add('dark');
+    }
+  } catch (e) {
+    // fail silently
+  }
+})();
+`;
+
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://shokssat.com"),
@@ -118,14 +134,17 @@ const organizationJsonLd = {
   ]
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cookieTheme = (await cookies()).get("theme")?.value;
+  const htmlClass = cookieTheme === "dark" ? "dark" : undefined;
   return (
-    <html lang="en">
+    <html lang="en" className={htmlClass}>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: initialThemeScript }} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
