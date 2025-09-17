@@ -34,16 +34,18 @@ const NAVBAR_CONFIG = {
   height: { top: "80px", scrolled: "60px" },
   bg: {
     dark: {
-      top: "rgba(15, 23, 42, 0)",
-      scrolled: "rgba(15, 23, 42, 0.8)",
+      top: "rgba(0, 0, 0, 0)",
+      scrolled: "rgba(0, 0, 0, 0.8)",
     },
     light: {
       top: "rgba(255, 255, 255, 0)",
       scrolled: "rgba(255, 255, 255, 0.95)",
     },
   },
-  shadow:
+  shadowLight:
     "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06)",
+  shadowDark:
+    "0 8px 30px -10px rgba(255, 255, 255, 0.08), 0 2px 8px -4px rgba(255, 255, 255, 0.04)",
 };
 
 const createScrollAction = (id: string) => () => {
@@ -128,7 +130,7 @@ export function DynamicNavbar() {
         ? NAVBAR_CONFIG.bg.dark.scrolled
         : NAVBAR_CONFIG.bg.light.scrolled,
       backdropFilter: 'blur(10px)',
-      boxShadow: NAVBAR_CONFIG.shadow,
+      boxShadow: isDark ? NAVBAR_CONFIG.shadowDark : NAVBAR_CONFIG.shadowLight,
     },
   };
 
@@ -218,11 +220,10 @@ export function DynamicNavbar() {
               initial="hidden"
               animate="visible"
               exit="exit"
-              className={`md:hidden absolute top-full left-0 w-full backdrop-blur-lg shadow-lg border-t ${
-                isDark
+              className={`md:hidden absolute top-full left-0 w-full backdrop-blur-lg shadow-lg border-t ${isDark
                   ? "bg-[#0f172a]/90 border-gray-800 text-white"
                   : "bg-white/95 border-gray-200 text-gray-900"
-              }`}
+                }`}
             >
               <div className="container mx-auto px-4 md:px-6 py-4 flex flex-col items-center gap-4">
                 {navItems.map((item) => (

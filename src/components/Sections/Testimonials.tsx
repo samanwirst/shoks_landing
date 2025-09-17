@@ -59,7 +59,7 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="py-20 px-6 bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-white">
+    <section className="py-20 px-6 bg-gray-50 text-gray-900 dark:bg-black dark:text-white">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div
@@ -101,7 +101,7 @@ export default function Testimonials() {
             <motion.div
               key={index}
               variants={itemVariants}
-              className="p-8 rounded-2xl border bg-white border-gray-200 hover:bg-gray-50 shadow-lg hover:shadow-xl dark:bg-gray-900/50 dark:border-gray-700 dark:hover:bg-gray-900/70 dark:border-2 dark:hover:border-white dark:hover:shadow-[0_0_20px_rgba(255,255,255,0.7)] transition-all duration-300"
+              className="p-8 rounded-2xl border bg-white border-gray-200 hover:bg-gray-50 shadow-lg hover:shadow-xl dark:bg-gray-900/50 dark:border-gray-700 dark:hover:bg-gray-900/70 dark:border-2 dark:hover:border-[rgba(255,95,35,0.7)] dark:hover:shadow-[0_0_20px_rgba(255,95,35,0.7)] transition-all duration-300"
             >
               {/* Quote */}
               <div className="mb-6">
