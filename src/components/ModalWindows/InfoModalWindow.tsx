@@ -101,10 +101,10 @@ export default function InfoModalWindow({
                 variants={panelVariants}
                 transition={{ duration: 0.18, ease: "easeOut" }}
                 onClick={(e) => e.stopPropagation()}
-                className={`relative z-10 w-full max-w-2xl mx-auto rounded-2xl ${className}`}
+                className={`relative z-10 w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl mx-auto rounded-2xl ${className}`}
                 style={panelStyle}
             >
-                <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-2xl p-6 sm:p-8">
+                <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-2xl p-4 sm:p-6 md:p-8 max-h-[90vh] overflow-y-auto">
                     <div className="flex items-start justify-between mb-4">
                         <div className="pr-6">
                             {title ? (

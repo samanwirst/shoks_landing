@@ -134,14 +134,14 @@ export default function Results() {
           animate={mounted ? "visible" : "hidden"}
           className="text-center mb-12"
         >
-          <motion.h2 
-            variants={headerChild} 
+          <motion.h2
+            variants={headerChild}
             className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white"
           >
             Real Students, Real Results
           </motion.h2>
-          <motion.p 
-            variants={headerChild} 
+          <motion.p
+            variants={headerChild}
             className="text-lg md:text-xl max-w-3xl mx-auto text-gray-600 dark:text-gray-300"
           >
             See how our students transformed their SAT scores and gained admission to their dream colleges
@@ -150,8 +150,8 @@ export default function Results() {
 
         <div className="relative">
           <div className="overflow-hidden">
-            <motion.div 
-            className="w-full">
+            <motion.div
+              className="w-full">
               <motion.div
                 animate={mounted ? { x: ["0%", "-50%"] } : { x: "0%" }}
                 transition={mounted ? { x: { repeat: Infinity, ease: "linear", duration } } : undefined}
@@ -248,6 +248,7 @@ export default function Results() {
         isOpen={isOpen}
         onClose={closeModal}
         title={selected ? `${selected.name} — Details` : "Student details"}
+        className="max-w-xs sm:max-w-md"
       >
         {selected ? (
           <>
