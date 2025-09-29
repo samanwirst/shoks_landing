@@ -1,68 +1,17 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { motion, Variants } from 'framer-motion';
-import { TrendingUp } from 'lucide-react';
+import React, { useEffect, useState, useRef } from "react";
+import { motion, Variants, useAnimation } from 'framer-motion';
+import { TrendingUp, Pointer } from 'lucide-react';
 import InfoModalWindow from "../ModalWindows/InfoModalWindow";
-
-type ResultType = {
-  name: string;
-  ebrwScore: number;
-  mathScore: number;
-  improvement: string;
-  certificateImgPath?: string;
-  testimonial?: string;
-  percentile?: string;
-  grade?: string;
-};
-
-const results: ResultType[] = [
-  {
-    name: "Asomiddin Raimov",
-    ebrwScore: 730,
-    mathScore: 800,
-    improvement: "+230",
-    certificateImgPath: "",
-    testimonial: "TESTING! I'm beyond excited to have reached my target SAT score! The lessons were clear, the practice tests were incredibly helpful, and the support from my instructors was outstanding. I couldn’t have done it without [School/Program Name].",
-    percentile: "98th",
-    grade: "11th"
-  },
-  {
-    name: "Javohir Shomurodov",
-    ebrwScore: 700,
-    mathScore: 800,
-    improvement: "+200",
-    certificateImgPath: "",
-    testimonial: "TESTING! Thanks to [School/Program Name], I was able to raise my SAT score by over 200 points! The personalized guidance and structured approach made studying much less stressful. I feel fully prepared for college applications now.",
-    percentile: "99th",
-    grade: "10th"
-  },
-  {
-    name: "Daniel Ismagilov",
-    ebrwScore: 780,
-    mathScore: 780,
-    improvement: "+260",
-    certificateImgPath: "",
-    testimonial: "I achieved the score I dreamed of, and I owe it to the amazing resources and support I received here. Every session was productive, and I learned strategies that truly worked. Highly recommend [School/Program Name]!",
-    percentile: "97th",
-    grade: "12th"
-  },
-  {
-    name: "Sadula Rizaev",
-    ebrwScore: 790,
-    mathScore: 800,
-    improvement: "+290",
-    certificateImgPath: "",
-    testimonial: "Getting my target SAT score seemed impossible at first, but [School/Program Name] made it achievable. The practice materials, mock exams, and dedicated instructors all contributed to my success. I'm so grateful!",
-    percentile: "99th",
-    grade: "12th"
-  }
-];
+import results, { ResultType } from "@/lib/results";
 
 const DUPLICATES_COUNT = 4;
 
 export default function Results() {
   const duration = Math.max(6, 20);
+  const pauseBetweenCycles = 300;
+
   const items: (ResultType & { __clone?: boolean; __cloneIndex?: number })[] = [
     ...results.map(r => ({ ...r, __clone: false })),
     ...Array.from({ length: DUPLICATES_COUNT }).flatMap((_, cloneIndex) =>
@@ -124,6 +73,32 @@ export default function Results() {
       }
     })
   };
+  const controls = useAnimation();
+  const abortRef = useRef(false);
+
+  useEffect(() => {
+    abortRef.current = false;
+
+    const startLoop = async () => {
+      while (!abortRef.current) {
+        try {
+          await controls.start({ x: ["0%", "-50%"], transition: { duration, ease: "linear" } });
+          controls.set({ x: "0%" });
+          await new Promise((r) => setTimeout(r, pauseBetweenCycles));
+        } catch (e) {
+          break;
+        }
+      }
+    };
+
+    startLoop();
+
+    return () => {
+      abortRef.current = true;
+      controls.stop();
+    };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [mounted]);
 
   return (
     <section className="py-20 px-6 bg-background text-gray-900 dark:text-white">
@@ -150,13 +125,13 @@ export default function Results() {
 
         <div className="relative">
           <div className="overflow-hidden">
-            <motion.div
+            <motion.div 
               className="w-full">
               <motion.div
-                animate={mounted ? { x: ["0%", "-50%"] } : { x: "0%" }}
-                transition={mounted ? { x: { repeat: Infinity, ease: "linear", duration } } : undefined}
-                style={{ willChange: "transform" }}
                 className="flex w-[200%] items-stretch gap-6 flex-nowrap"
+                initial={{ x: "0%" }}
+                animate={controls}
+                style={{ willChange: "transform" }}
               >
                 {items.map((result, i) => {
                   const isClone = !!(result as any).__clone;
@@ -172,7 +147,7 @@ export default function Results() {
                       animate={mounted ? "visible" : "hidden"}
                       custom={visibleIndex}
                       className={
-                        `min-w-[300px] max-w-xs flex-shrink-0 p-6 rounded-2xl border bg-white border-gray-200 shadow-lg dark:bg-gray-900/50 dark:border-gray-700 transition-all duration-300 cursor-pointer`
+                        `min-w-[300px] max-w-xs flex-shrink-0 p-6 rounded-2xl border bg-white border-gray-200 shadow-lg dark:bg-gray-900/50 dark:border-gray-700 hover:border-[rgba(255,95,35,0.7)] transition-all duration-300 ease-out cursor-pointer`
                       }
                       role="button"
                       aria-label={`${canonical.name} — ${canonical.ebrwScore + canonical.mathScore} total`}
@@ -211,10 +186,14 @@ export default function Results() {
                         </div>
                       </div>
 
-                      <div className="flex items-center justify-center">
-                        <div className="bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-300 px-3 py-1 rounded-full text-sm font-semibold inline-flex items-center">
+                      <div className="flex flex-col w-full items-center justify-center space-y-2">
+                        <div className="bg-green-100 w-full text-green-800 dark:bg-green-900/40 dark:text-green-300 px-3 py-1 rounded-full text-sm font-semibold inline-flex items-center">
                           <TrendingUp className="w-4 h-4 inline-block mr-2" />
                           {canonical.improvement} points
+                        </div>
+                        <div className="bg-[#FF5F23]/10 w-full text-[#FF5F23] dark:bg-[#FF5F23]/20 dark:text-[#FF5F23] px-3 py-1 rounded-full text-sm font-semibold inline-flex items-center">
+                          <Pointer className="w-4 h-4 inline-block mr-2" />
+                          Click for details
                         </div>
                       </div>
                     </motion.article>
