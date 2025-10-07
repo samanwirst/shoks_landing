@@ -24,10 +24,17 @@ export function useTheme() {
     return (cookie ?? "system") as Theme;
   });
 
+  const [systemTheme, setSystemTheme] = useState<"light" | "dark" | undefined>(() => {
+    if (typeof window === "undefined") return undefined;
+    return prefersDark() ? "dark" : "light";
+  });
+
   useEffect(() => {
     if (theme === "system") {
-      applyHtmlClass(prefersDark());
+      const shouldDark = prefersDark();
+      applyHtmlClass(shouldDark);
       setCookie(COOKIE_NAME, "system", { path: "/", maxAge: COOKIE_MAX_AGE });
+      setSystemTheme(shouldDark ? "dark" : "light");
     } else {
       applyHtmlClass(theme === "dark");
       setCookie(COOKIE_NAME, theme, { path: "/", maxAge: COOKIE_MAX_AGE });
@@ -36,6 +43,8 @@ export function useTheme() {
     // Listen to system dark changes when theme === 'system'
     const mql = typeof window !== "undefined" ? window.matchMedia?.("(prefers-color-scheme: dark)") : null;
     const listener = (e: MediaQueryListEvent) => {
+      const newSystem = e.matches ? "dark" : "light";
+      setSystemTheme(newSystem);
       if (theme === "system") applyHtmlClass(e.matches);
     };
 
@@ -65,5 +74,8 @@ export function useTheme() {
     setThemeState((prev) => (prev === "dark" ? "light" : "dark"));
   }, []);
 
-  return { theme, setTheme, toggleTheme } as const;
+  const resolvedTheme: "light" | "dark" | undefined =
+    theme === "system" ? systemTheme : (theme === "dark" ? "dark" : "light");
+
+  return { theme, setTheme, toggleTheme, systemTheme, resolvedTheme } as const;
 }

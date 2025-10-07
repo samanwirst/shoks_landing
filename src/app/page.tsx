@@ -6,6 +6,7 @@ import { Hero } from "@/components/Sections/Hero";
 import PainAmplification from '@/components/Sections/PainAmplification';
 import SolutionPresentation from '@/components/Sections/SolutionPresentation';
 import UniqueSellingPoints from '@/components/Sections/UniqueSellingPoints';
+import Platform from "@/components/Sections/Platform";
 import Testimonials from '@/components/Sections/Testimonials';
 import Results from '@/components/Sections/Results';
 import Footer from '@/components/Sections/Footer';
@@ -43,7 +44,13 @@ export default function Home() {
         </div>
       </div>
       
-
+      {/* Platform Section */}
+      <div className="bg-slate-50 relative" id="unique-selling-points">
+        <BackgroundShapes variant="light" density="high" />
+        <div className="relative z-10">
+          <Platform />
+        </div>
+      </div>
       
       {/* Testimonials Section */}
       <div className="bg-slate-100 relative" id="testimonials">

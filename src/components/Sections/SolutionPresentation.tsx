@@ -3,6 +3,8 @@
 import { motion } from 'framer-motion';
 import { Award, BarChart3, BookOpen, Users, CheckCircle, Star, ArrowRight } from 'lucide-react';
 
+import Link from 'next/link';
+
 const features = [
   {
     icon: BookOpen,
@@ -160,15 +162,15 @@ export default function SolutionPresentation() {
           variants={itemVariants}
           className="mt-12 flex justify-center"
         >
-          <a
+          <Link
             href="https://forms.gle/C2k3btULzK2sdcsk7"
             target="_blank"
             rel="noopener noreferrer"
-            className="transition-all duration-150 ease-out inline-flex items-center gap-2 bg-[#FF5F23] hover:bg-[#FF5F23] hover:shadow-[0_0_20px_rgba(255,95,35,0.7)] text-white font-semibold py-3 px-6 rounded-lg"
+            className="transition-all duration-300 ease-out inline-flex items-center gap-2 bg-[#FF5F23] hover:shadow-[0_0_20px_rgba(255,95,35,0.7)] text-white font-semibold py-3 px-6 rounded-lg"
           >
             Enroll in the Course
             <ArrowRight className="w-5 h-5" />
-          </a>
+          </Link>
         </motion.div>
 
       </div>
