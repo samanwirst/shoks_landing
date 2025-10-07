@@ -35,24 +35,22 @@ const testimonials = [
 ];
 
 export default function Testimonials() {
-  const containerVariants: Variants = {
-    hidden: { opacity: 0 },
+  const headerVariants: Variants = {
+    hidden: { opacity: 0, y: 12 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1
-      }
+      y: 0,
+      transition: { duration: 0.45, ease: "easeOut" }
     }
   };
 
   const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 28 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6,
+        duration: 0.5,
         ease: "easeOut"
       }
     }
@@ -65,11 +63,11 @@ export default function Testimonials() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={containerVariants}
+          viewport={{ once: true, amount: 0.15 }}
+          variants={headerVariants}
           className="text-center mb-16"
         >
-          <motion.div variants={itemVariants} className="flex items-center justify-center mb-4">
+          <motion.div variants={headerVariants} className="flex items-center justify-center mb-4">
             <div className="flex">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="w-6 h-6 text-yellow-400 fill-current" />
@@ -80,27 +78,24 @@ export default function Testimonials() {
             </span>
           </motion.div>
 
-          <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white">
+          <motion.h2 variants={headerVariants} className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white">
             What Our Students Say
           </motion.h2>
 
-          <motion.p variants={itemVariants} className="text-lg md:text-xl max-w-3xl mx-auto text-gray-700 dark:text-gray-300">
+          <motion.p variants={headerVariants} className="text-lg md:text-xl max-w-3xl mx-auto text-gray-700 dark:text-gray-300">
             Hear directly from our Booster Cohort students about their learning experience
           </motion.p>
         </motion.div>
 
         {/* Testimonials Grid */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={containerVariants}
-          className="grid md:grid-cols-2 gap-8 mb-16"
-        >
+        <div className="grid md:grid-cols-2 gap-8 mb-16">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.12 }} // срабатывает раньше на мобильных
               className="p-8 rounded-2xl border bg-white border-gray-200 hover:bg-gray-50 shadow-lg hover:shadow-xl dark:bg-gray-900/50 dark:border-gray-700 dark:hover:bg-gray-900/70 dark:border-2 dark:hover:border-[rgba(255,95,35,0.7)] dark:hover:shadow-[0_0_20px_rgba(255,95,35,0.7)] transition-all duration-300"
             >
               {/* Quote */}
@@ -130,7 +125,7 @@ export default function Testimonials() {
               </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

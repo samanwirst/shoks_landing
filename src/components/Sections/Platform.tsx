@@ -201,7 +201,7 @@ export default function Platform() {
                 <motion.div
                   key={i}
                   variants={itemVariants}
-                  className={`rounded-lg overflow-hidden border bg-white border-gray-200 dark:bg-gray-900/60 dark:border-gray-800 transition-shadow cursor-pointer`}
+                  className={`transition-all ease-out duration-300 rounded-lg overflow-hidden border-2 hover:border-[#FF5F23] bg-white border-gray-200 dark:bg-gray-900/60 dark:border-gray-800 cursor-pointer`}
                   onClick={() => openImage(i)}
                 >
                   <div className="relative w-full aspect-[16/9]">
